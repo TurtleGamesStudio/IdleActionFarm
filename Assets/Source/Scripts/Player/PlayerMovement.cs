@@ -101,7 +101,6 @@ public class PlayerMovement : MonoBehaviour
         _agent.velocity = speed * direction;
 
         InputerShareChanged?.Invoke(_inputer.Share);
-        //SpeedChanged?.Invoke(speed);
     }
 
     private void Rotate(Vector3 direction)
