@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7941200378552066113}
   - component: {fileID: 7941200378552066114}
   - component: {fileID: 7941200378552066115}
-  - component: {fileID: 7941200378552066112}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7941200378552066112
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7941200378552066126}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7941200379816679511
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,6 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7941200379816679497}
   - component: {fileID: 7941200379816679510}
+  - component: {fileID: 2859775222435643149}
+  - component: {fileID: 7309636332431834456}
   m_Layer: 0
   m_Name: PackedWheat
   m_TagString: Untagged
@@ -139,3 +127,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c291e774f454ab24aa67688dde5d8da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tweener: {fileID: 2859775222435643149}
+  _originalScale: {x: 1, y: 1, z: 1}
+  _jumpPower: 3
+  _time: 3
+  _scaleMultiplier: 1.5
+--- !u!114 &2859775222435643149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941200379816679511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ade043346f73d740ad54925bafe035a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7309636332431834456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7941200379816679511}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0.25, z: 0}
