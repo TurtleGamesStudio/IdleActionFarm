@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class WaveBagView : MonoBehaviour, IBagView
 {
+    [SerializeField] private float _offsetY = 1;
     [SerializeField] private PlayerMovement _movement;
     [SerializeField] private Transform _container;
     [SerializeField] private Ring _template;
@@ -10,6 +11,7 @@ public class WaveBagView : MonoBehaviour, IBagView
 
     private List<Ring> _rings;
     private List<Transform> _places;
+    private Vector3 _offset;
 
     public IReadOnlyList<Transform> Places => _places;
 
@@ -27,6 +29,7 @@ public class WaveBagView : MonoBehaviour, IBagView
 
     public void Init(int capacity)
     {
+        _offset = Vector3.up * _offsetY;
         _rings = new List<Ring>();
         _places = new List<Transform>();
 
@@ -34,7 +37,7 @@ public class WaveBagView : MonoBehaviour, IBagView
         {
             Vector3 spawnPosition = GetPosition(i);
             Ring ring = Instantiate(_template, spawnPosition, Quaternion.identity, transform);
-            ring.Init(transform);
+            ring.Init();
             _rings.Add(ring);
             _places.Add(ring.transform);
         }
@@ -43,7 +46,7 @@ public class WaveBagView : MonoBehaviour, IBagView
     //Increase capacity unavailable
     private Vector3 GetPosition(int index)
     {
-        return _container.position + Vector3.up * index;
+        return _container.position + _offset * index;
     }
 
     private void OnMoved()

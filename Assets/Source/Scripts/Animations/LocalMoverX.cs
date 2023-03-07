@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class LocalMoverX : MonoBehaviour
 {
-    [SerializeField] private float _duration;
+    [SerializeField] private float _duration = 1;
 
     private TweenerCore<Vector3, Vector3, VectorOptions> _tweenerCore;
 
