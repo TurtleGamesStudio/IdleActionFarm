@@ -3,10 +3,12 @@ using UnityEngine;
 public class ItemCollector : MonoBehaviour
 {
     [SerializeField] private BagHolder _bagHolder;
+    [SerializeField] private BagView _bagView;
 
     private void Awake()
     {
         _bagHolder.Init();
+        _bagView.Init();
     }
 
     private void OnTriggerStay(Collider other)

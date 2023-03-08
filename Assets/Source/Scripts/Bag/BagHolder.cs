@@ -5,9 +5,9 @@ using System;
 public class BagHolder : MonoBehaviour, IBagHolder
 {
     [SerializeField] private Bag _bag;
-    [SerializeField] private MonoBehaviour _bagView;
+    [SerializeField] private MonoBehaviour _slotView;
 
-    public ISlotView _view => (ISlotView)_bagView;
+    public ISlotView _view => (ISlotView)_slotView;
 
     public IReadOnlyList<Item> Items => _bag.Items;
     public bool CanAdd => _bag.CanAdd;
@@ -17,7 +17,7 @@ public class BagHolder : MonoBehaviour, IBagHolder
 
     private void OnValidate()
     {
-        InterfaceImplementaion.Implement<ISlotView>(ref _bagView);
+        InterfaceImplementaion.Implement<ISlotView>(ref _slotView);
     }
 
     public void Init()

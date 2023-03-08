@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
+using System;
 
 public class Seller : MonoBehaviour
 {
@@ -10,6 +10,8 @@ public class Seller : MonoBehaviour
 
     private WaitForSeconds _waiting;
     private List<Item> _items;
+
+    public event Action<Valueable> Sold;
 
     private IBagHolder _holder => (IBagHolder)_bagHolder;
 
@@ -62,6 +64,12 @@ public class Seller : MonoBehaviour
     private void Sell(Item item)
     {
         _holder.Remove(item);
+
+        //Very weak place!
+        Valueable valuable = item.GetComponent<Valueable>();
+
+        if (valuable != null)
+            Sold?.Invoke(valuable);
 
         Destroy(item.gameObject);
     }

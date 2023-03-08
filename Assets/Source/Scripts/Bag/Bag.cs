@@ -5,7 +5,7 @@ using System;
 
 public class Bag : MonoBehaviour
 {
-    [SerializeField] private float _cooldown = 1;
+    [SerializeField] private float _addCooldown = 1;
     [SerializeField] private float _removeCooldown = 1;
     [SerializeField] private int _capacity = 1;
 
@@ -19,6 +19,7 @@ public class Bag : MonoBehaviour
     public bool CanRemove => _items.Count > 0 && _isRemoveAvailable;
 
     public event Action<Item> Added;
+    public event Action<Item> Removed;
 
     private void Awake()
     {
@@ -31,7 +32,7 @@ public class Bag : MonoBehaviour
     {
         _items.Add(item);
         _isAdditionAvailable = false;
-        Invoke(nameof(SetAdditionAvailable), _cooldown);
+        Invoke(nameof(SetAdditionAvailable), _addCooldown);
         Added?.Invoke(item);
     }
 
@@ -45,7 +46,7 @@ public class Bag : MonoBehaviour
         _items.Remove(item);
         _isRemoveAvailable = false;
         Invoke(nameof(SetRemoveAvailable), _removeCooldown);
-
+        Removed?.Invoke(item);
     }
 
     private void SetAdditionAvailable()
