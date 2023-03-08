@@ -129,8 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tweener: {fileID: 2859775222435643149}
   _originalScale: {x: 1, y: 1, z: 1}
-  _jumpPower: 3
-  _time: 3
+  _jumpPower: 1
+  _time: 1
   _scaleMultiplier: 1.5
 --- !u!114 &2859775222435643149
 MonoBehaviour:

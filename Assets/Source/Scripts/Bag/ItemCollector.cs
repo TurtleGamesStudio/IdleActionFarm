@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemCollector : MonoBehaviour
@@ -11,11 +9,11 @@ public class ItemCollector : MonoBehaviour
         _bagHolder.Init();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.TryGetComponent(out Item item))
+        if (_bagHolder.CanAdd && other.TryGetComponent(out Item item))
         {
-            _bagHolder.TryAdd(item);
+            _bagHolder.Add(item);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Item : MonoBehaviour
 {
@@ -12,15 +13,32 @@ public class Item : MonoBehaviour
 
     private Collider _collider;
 
+    public event Action<Item> Placed;
+
     private void Awake()
     {
         _collider = GetComponent<Collider>();
+    }
+
+    private void OnEnable()
+    {
+        _tweener.Completed += OnAnimationComplete;
+    }
+
+    private void OnDisable()
+    {
+        _tweener.Completed -= OnAnimationComplete;
     }
 
     public void Fly(Transform target)
     {
         transform.parent = target;
         _tweener.Fly(_jumpPower, _time, _originalScale, _scaleMultiplier);
+    }
+
+    private void OnAnimationComplete()
+    {
+        Placed?.Invoke(this);
     }
 
     public void DisableCollider()

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveBagView : MonoBehaviour, IBagView
+public class WaveSlotView : MonoBehaviour, ISlotView
 {
     [SerializeField] private float _offsetY = 1;
     [SerializeField] private PlayerMovement _movement;
@@ -10,10 +10,8 @@ public class WaveBagView : MonoBehaviour, IBagView
     [SerializeField] private WaveStarter _starter;
 
     private List<Ring> _rings;
-    private List<Transform> _places;
+    private List<Slot> _slots;
     private Vector3 _offset;
-
-    public IReadOnlyList<Transform> Places => _places;
 
     private void OnEnable()
     {
@@ -31,7 +29,7 @@ public class WaveBagView : MonoBehaviour, IBagView
     {
         _offset = Vector3.up * _offsetY;
         _rings = new List<Ring>();
-        _places = new List<Transform>();
+        _slots = new List<Slot>();
 
         for (int i = 0; i < capacity; i++)
         {
@@ -39,8 +37,35 @@ public class WaveBagView : MonoBehaviour, IBagView
             Ring ring = Instantiate(_template, spawnPosition, Quaternion.identity, transform);
             ring.Init();
             _rings.Add(ring);
-            _places.Add(ring.transform);
+            Slot slot = ring.GetComponent<Slot>();
+            _slots.Add(slot);
         }
+    }
+
+    public Slot GetFreeSlot()
+    {
+        foreach (Slot slot in _slots)
+        {
+            if (slot.Item == null)
+            {
+                return slot;
+            }
+        }
+
+        return null;
+    }
+
+    public Slot FindSlot(Item item)
+    {
+        foreach (Slot slot in _slots)
+        {
+            if (slot.Item == item)
+            {
+                return slot;
+            }
+        }
+
+        return null;
     }
 
     //Increase capacity unavailable
