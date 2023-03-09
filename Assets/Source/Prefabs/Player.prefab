@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _addCooldown: 0.1
   _removeCooldown: 0.02
-  _capacity: 50
+  _capacity: 40
 --- !u!54 &6908326227278020062
 Rigidbody:
   m_ObjectHideFlags: 0
