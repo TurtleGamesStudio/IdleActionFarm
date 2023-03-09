@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     private Coroutine _transformUpdating;
     private Transform _cameraTransform;
 
-    //public event Action<float> SpeedChanged;
     public event Action<float> InputerShareChanged;
 
     public event Action Stopped;

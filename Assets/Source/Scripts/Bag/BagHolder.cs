@@ -28,7 +28,7 @@ public class BagHolder : MonoBehaviour, IBagHolder
     public void Add(Item item)
     {
         _bag.Add(item);
-        Added?.Invoke(item);//be carefull. Call event here mean item added only in bag!!!
+        Added?.Invoke(item);
         Slot slot = _view.GetFreeSlot();
         slot.Item = item;
         Transform target = slot.transform;
@@ -38,7 +38,7 @@ public class BagHolder : MonoBehaviour, IBagHolder
 
     public Item Remove()
     {
-        Item item = _bag.GetAt(_bag.Items.Count - 1);//It's for player bag
+        Item item = _bag.GetAt(_bag.Items.Count - 1);
         _bag.Remove(item);
 
         Slot slot = _view.FindSlot(item);

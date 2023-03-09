@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,18 +7,18 @@ public class BagView : MonoBehaviour
     [SerializeField] private Bag _bag;
     private TMP_Text _text;
 
+    private void OnDisable()
+    {
+        _bag.Added -= OnAdded;
+        _bag.Removed -= OnRemoved;
+    }
+
     public void Init()
     {
         _text = GetComponent<TMP_Text>();
         _bag.Added += OnAdded;
         _bag.Removed += OnRemoved;
         Show();
-    }
-
-    private void OnDisable()
-    {
-        _bag.Added -= OnAdded;
-        _bag.Removed -= OnRemoved;
     }
 
     private void OnAdded(Item _)

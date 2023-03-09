@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &577376966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 577376967}
+  m_Layer: 0
+  m_Name: HitEffectContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &577376967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577376966}
+  m_LocalRotation: {x: -0.1100648, y: 0.6984882, z: 0.11006483, w: 0.6984882}
+  m_LocalPosition: {x: 0, y: 0.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5077806249945709887}
+  m_Father: {fileID: 6230907685056917002}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: -17.91, y: 90, z: 0}
 --- !u!1 &2034419161283961002
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +95,7 @@ Transform:
   - {fileID: 1355380817834417670}
   - {fileID: 6474652603637930837}
   - {fileID: 8588989886100009848}
+  - {fileID: 577376967}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,6 +129,7 @@ MonoBehaviour:
   _resourceProducer: {fileID: 550042456}
   _animator: {fileID: 550042455}
   _respawnDelay: 10
+  _hitEffect: {fileID: 3047309354857973753}
   IsAvalable: 0
 --- !u!54 &361583992875785996
 Rigidbody:
@@ -165,6 +198,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 28aefbd784d09964e93243010eae8c5a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9ca06bd2715e44986f6aa92f6ffb63, type: 2}
     - target: {fileID: 919132149155446097, guid: 28aefbd784d09964e93243010eae8c5a, type: 3}
       propertyPath: m_Name
       value: WheatRoot
@@ -184,6 +221,73 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 28aefbd784d09964e93243010eae8c5a, type: 3}
   m_PrefabInstance: {fileID: 1532911423013485037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3707666736468620336
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 577376967}
+    m_Modifications:
+    - target: {fileID: 2827544148958829501, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_Name
+      value: WheatHitEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+--- !u!4 &5077806249945709887 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8431788128875563279, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+  m_PrefabInstance: {fileID: 3707666736468620336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3047309354857973753 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1819015502269690825, guid: 4a663f53b4ab9b445882aa3abb106582, type: 3}
+  m_PrefabInstance: {fileID: 3707666736468620336}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4686807899904736119
 PrefabInstance:
@@ -315,6 +419,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 839c7dc247fbb914eb98d7ac09896440, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9ca06bd2715e44986f6aa92f6ffb63, type: 2}
     - target: {fileID: 919132149155446097, guid: 839c7dc247fbb914eb98d7ac09896440, type: 3}
       propertyPath: m_Name
       value: PackedWheat
@@ -327,6 +435,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8320487046164310649, guid: 839c7dc247fbb914eb98d7ac09896440, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b9ca06bd2715e44986f6aa92f6ffb63, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 839c7dc247fbb914eb98d7ac09896440, type: 3}
 --- !u!1 &5949614174426743279 stripped

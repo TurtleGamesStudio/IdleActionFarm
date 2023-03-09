@@ -3,8 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(RectTransform))]
 public class CircleOfInput : MonoBehaviour
 {
-    [SerializeField] private RectTransform _borderRectTransform;
-
     private Inputer _inputer;
     private RectTransform _rectTransform;
     private float _radius;
@@ -13,7 +11,6 @@ public class CircleOfInput : MonoBehaviour
     {
         _rectTransform = GetComponent<RectTransform>();
         _rectTransform.sizeDelta = _inputer.Radius * 2 * Vector2.one;
-        //_radius = _borderRectTransform.rect.width / 2;
     }
 
     private void OnDisable()

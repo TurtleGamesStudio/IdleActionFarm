@@ -13,6 +13,8 @@ public class UnpackedResource : MonoBehaviour
 
     [SerializeField] private float _respawnDelay = 10;
 
+    [SerializeField] private ParticleSystem _hitEffect;
+
     private Collider _collider;
 
     public event Action Packed;
@@ -52,6 +54,7 @@ public class UnpackedResource : MonoBehaviour
         _wholeModel.SetActive(false);
         _root.SetActive(true);
         _animator.SetTrigger(Drop);
+        _hitEffect.Play();
     }
 
     private void Grow()

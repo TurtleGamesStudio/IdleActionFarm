@@ -22,7 +22,7 @@ public class FlyAndScaleTweener : MonoBehaviour
         transform.DOScale(originalScale, time);
     }
 
-    public void StopFlying()//желательно вернуть изначальный скейл, понадобится несколько анимационных скриптов, а не единая sequence)))
+    public void StopFlying()
     {
         _sequence.Kill();
     }
